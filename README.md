@@ -1,15 +1,22 @@
-# 🚀 Welcome to your new awesome project!
+# Simple Live Chat
 
-This project has been created using **webpack-cli**, you can now run
+Technology stack:
+- Node
+- Express
+- Websocket
+- React
+- MySql
 
-```
-npm run build
-```
 
-or
+## Install Dependencies
 
-```
-yarn build
-```
+npm install
 
-to bundle your application
+
+### Run Application
+
+npm run server-dev (start server at backend)
+npm run client-dev (update latest client version)
+url: http://localhost:5000
+
+make sure to change settings on .env
