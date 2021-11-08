@@ -1,19 +1,28 @@
-const express = require('express');
+/* const express = require('express');
 const path = require('path');
 const db = require('./db/index.js');
 const cors = require('cors');
 const http = require('http');
 const socketio = require('socket.io');
-const router = require('router');
+const router = require('router'); */
 
-const formatMessage = require('./../helpers/messages');
-const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./../helpers/users');
+import express from 'express';
+import path from 'path';
+import db from './db/index.js';
+import cors from 'cors';
+import http from 'http';
+import {Server} from 'socket.io';
+import router from 'router';
+
+import formatMessage from './../helpers/messages.js';
+import { userJoin, getCurrentUser, userLeave, getRoomUsers } from './../helpers/users.js';
 
 const app = express();
-app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use(express.static(path.join(new URL(import.meta.url).pathname, '/../client/dist')));
+// app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 const server = http.createServer(app);
-const io = socketio(server);
+const io = new Server(server);
 
 app.use(cors());
 app.use(router);

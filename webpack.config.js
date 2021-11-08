@@ -1,10 +1,11 @@
-const path = require('path');
+// const path = require('path');
+import path from 'path';
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'client/src/index.js'),
+  entry: path.resolve(new URL(import.meta.url).pathname, 'client/src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'client/dist'),
+    path: path.resolve(new URL(import.meta.url).pathname, 'client/dist'),
     filename: 'bundle.js'
   },
   resolve: {
