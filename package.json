@@ -1,11 +1,13 @@
 {
-  "name": "my-webpack-project",
+  "name": "live-chat",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Simple Live Chat App",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "client-dev": "webpack --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "seed-db": "node server/db/seeder.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "mongoose": "^5.12.3",

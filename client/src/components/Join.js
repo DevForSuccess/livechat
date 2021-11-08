@@ -26,8 +26,8 @@ const Join = () => {
             <div className="form-control">
               <label htmlFor="room">Room</label>
               <select name="room" id="room" onChange={(event) => setRoom(event.target.value)}>
-                <option value="JavaScript">JavaScript</option>
-                <option value="React">Node</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Node">Node</option>
                 <option value="React">React</option>
                 <option value="MySQL">MySQL</option>
                 <option value="Redux">Redux</option>
