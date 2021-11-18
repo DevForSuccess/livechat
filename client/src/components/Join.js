@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Join = () => {
+
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/rooms')
+      .then(res => {
+        let rm = [];
+        res.data.forEach(room => rm.push(room.room_name));
+        setRooms(rm);
+      });
+  }, []);
+
   const [name, setName] = useState('');
   const [room, setRoom] = useState('JavaScript');
+
   return (
     <>
       <div className="join-container">
@@ -26,13 +40,7 @@ const Join = () => {
             <div className="form-control">
               <label htmlFor="room">Room</label>
               <select name="room" id="room" onChange={(event) => setRoom(event.target.value)}>
-                <option value="Javascript">Javascript</option>
-                <option value="Node">Node</option>
-                <option value="React">React</option>
-                <option value="MySQL">MySQL</option>
-                <option value="Redux">Redux</option>
-                <option value="Mongo">Mongo</option>
-                <option value="Sequelize">Sequelize</option>
+                {rooms.map((room, i) => <option key={i} value={room}>{room}</option>)}
               </select>
             </div>
             <Link to={`/chat?username=${name}&room=${room}`}>

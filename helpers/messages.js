@@ -1,5 +1,4 @@
-// const moment = require('moment');
-import moment from 'moment';
+const moment = require('moment');
 
 const formatMessage = (username, text) => {
   return {
@@ -7,4 +6,4 @@ const formatMessage = (username, text) => {
   }
 }
 
-export default formatMessage;
+module.exports = formatMessage;

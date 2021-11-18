@@ -23,6 +23,6 @@ const getRoomUsers = (room) => {
   return users.filter(user => user.room == room);
 }
 
-export {
+module.exports = {
   userJoin, getCurrentUser, userLeave, getRoomUsers
 }

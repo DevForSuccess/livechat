@@ -1,14 +1,18 @@
-import dotenv from 'dotenv';
-import mysql from 'mysql';
+const dotenv = require('dotenv');
+const mysql = require('mysql2');
 
 dotenv.config();
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
+  host: 'localhost',
   user: process.env.MYSQL_CHAT_USER,
   password: process.env.MYSQL_CHAT_PASS,
   database: process.env.MYSQL_CHAT_DB
 });
 
-connection.connect();
+connection.connect(err => {
+  if (err) { console.log(err) }
+  else { console.log('database connected') };
+});
 
-export default connection;
+module.exports = connection;

@@ -1,5 +1,5 @@
-import db from './index.js';
-import rooms from './rooms.js';
+const db = require('./index');
+const rooms = require('./rooms');
 
 const seedData = async () => {
   try {
