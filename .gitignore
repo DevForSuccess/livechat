@@ -35,5 +35,5 @@ bower_components/
 .flooignore
 
 # environment variable
-/.env
-/.sh
+/*.env
+/*.sh
