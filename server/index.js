@@ -62,6 +62,6 @@ io.on('connection', socket => {
 });
 // end of chat code block
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 80;
 server.listen(PORT, () => console.log(`Server running on port http://localhost:${PORT}`));
 app.listen(8780, () => console.log(`API running on port http://localhost:8780`));
