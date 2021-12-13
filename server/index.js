@@ -3,6 +3,10 @@ const path = require('path');
 const room = require('./controllers/room');
 const cors = require('cors');
 const http = require('http');
+
+const https = require('https');
+const fs = require('fs');
+
 const socketio = require('socket.io');
 const router = require('router');
 
@@ -12,7 +16,12 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./../help
 const app = express();
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-const server = http.createServer(app);
+const server = https.createServer(
+  {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert'),
+  },
+  app);
 const io = socketio(server);
 
 app.use(cors());
@@ -63,5 +72,5 @@ io.on('connection', socket => {
 // end of chat code block
 
 const PORT = process.env.PORT || 80;
-server.listen(PORT, () => console.log(`Server running on port http://localhost:${PORT}`));
-app.listen(8780, () => console.log(`API running on port http://localhost:8780`));
+server.listen(PORT, () => console.log(`Server running on port https://localhost:${PORT}`));
+app.listen(8780, () => console.log(`API running on port https://localhost:8780`));
