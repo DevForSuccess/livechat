@@ -38,3 +38,5 @@ bower_components/
 /*.sh
 /*.cert
 /*.key
+/server.cert
+/server.key
